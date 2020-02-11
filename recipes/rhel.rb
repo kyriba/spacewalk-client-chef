@@ -91,6 +91,8 @@ end
 if node['spacewalk']['enable_rhncfg']
   package 'rhncfg-actions' do
     action :install
+    #TODO we've to include --nogpg at keys installation to match spacewalk installation
+    #example : this instruction won't work unless --nogpg is added  yum -d0 -e0 -y install rhncfg-actions-5.10.122-1.el7.centos
   end
 
   if node['spacewalk']['rhncfg']['actions']['run']
